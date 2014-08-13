@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <style type="text/css">
+            /* Always hidden */
+            #data {
+                display: none !important;
+            }
+
+        </style>
+        <title>DashBoard</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="js/Dashboard.js"></script>
+        <script type="text/javascript" src="js/Data.js"></script>
+    </head>
+    <body>
+        <div id="container"/> <!-- chart container -->
+<!--
+Data source
+http://futpedia.globo.com/busca/jogo?q=7+x+1
+-->
+        <pre id="data">
+PART	1913-05-25	Americano-SP	7	1	Corinthians
+PART	2005-11-06	Corinthians	7	1	Santos 
+PART	1929-08-25	Santos	7	1	Ypiranga-SP
+PART	1930-04-13	Corinthians	7	1	Germania
+PART	1997-03-11	Palmeiras	7	1	River-PI
+PART	1955-11-03	Portuguesa	7	1	Linense
+PART	1937-01-17	Paulista SP	7	1	Lusitano
+PART	1930-11-30	Bangu	7	1	SC Brasil
+PART	1985-10-30	Vasco	7	1	Volta Redonda
+PART	1955-09-04	Santos	7	1	Jabaquara
+PART	1942-07-26	America-RJ	7	1	Bonsucesso
+PART	1926-10-12	Chile	7	1	Bolivia
+PART	1948-05-23	Portuguesa	7	1	Juventus-SP
+PART	1912-09-01	Sao Paulo Athletic	7	1	Ypiranga-SP
+PART	1946-09-22	Botafogo	7	1	Madureira
+PART	1951-08-12	Corinthians	7	1	Jabaquara
+PART	1917-05-20	Sao Cristovao	7	1	Carioca FC
+PART	1991-10-31	Vasco	7	1	Goytacaz
+PART	1912-09-08	America-RJ	7	1	Sao Cristovao
+PART	1977-04-17	Vasco	7	1	Madureira
+PART	1925-05-31	Bangu	7	1	SC Brasil
+PART	2001-11-22	America-MEX	7	1	Trujillanos
+PART	1920-05-09	Fluminense	7	1	Palmeiras RJ
+PART	1929-04-21	Independencia-SP	7	1	AA das Palmeiras
+PART	1932-05-08	Santos	7	1	Corinthians
+PART	2001-11-25	Vasco	7	1	Sao Paulo 
+PART	1973-03-23	River Plate	7	1	Oriente Petrolero
+PART	1938-12-29	Vasco	7	1	Sao Cristovao
+PART	1980-09-10	Flamengo	7	1	ADN-Niteroi
+PART	1960-10-05	Sao Paulo	7	1	Taubate
+PART	1906-05-03	Fluminense	7	1	Paysandu AC
+PART	1924-06-01	Fluminense	7	1	SC Brasil
+PART	1959-10-08	Botafogo-SP	7	1	Ponte Preta
+PART	1926-10-24	Independencia-SP	7	1	Britania
+PART	1980-05-04	Coritiba	7	1	Desportiva Ferroviaria
+PART	1977-05-26	Flamengo	7	1	Volta Redonda
+PART	1938-09-25	Flamengo	7	1	Bonsucesso
+PART	1942-03-29	Sao Paulo	7	1	Comercial Capital SP
+PART	1938-09-29	Santos	7	1	Lusitano
+PART	1986-03-02	Vasco	7	1	Portuguesa-RJ
+PART	1934-05-27	Italia	7	1	Estados Unidos
+PART	1935-11-10	Ypiranga-SP	7	1	Ordem e Progresso
+PART	1983-02-19	Flamengo	7	1	Rio Negro
+PART	1935-07-07	Estudantes	7	1	Libanes
+PART	1963-07-21	Olaria	7	1	Canto do Rio
+PART	1961-08-13	Santos	7	1	Noroeste
+PART	1953-08-08	Ponte Preta	7	1	Juventus-SP
+PART	1983-04-22	Flamengo	7	1	Blooming
+PART	1946-01-19	Argentina	7	1	Bolivia
+PART	1998-02-05	Cruzeiro	7	1	Amapa
+PART	1979-06-10	Flamengo	7	1	ADN-Niteroi
+PART	1926-06-20	Botafogo	7	1	SC Brasil
+PART	1959-11-19	Ferroviaria	7	1	America-SP
+PART	1979-06-14	Botafogo	7	1	ADN-Niteroi
+PART	1951-09-30	Palmeiras	7	1	Portuguesa Santista
+PART	1951-06-24	Palmeiras	7	1	Jabaquara
+PART	1928-01-22	Portuguesa	7	1	SP Alpargatas
+PART	1965-04-30	Palmeiras	7	1	Santos
+PART	1921-10-09	Palestra Italia-SP	7	1	SC Internacional-SP
+PART	2014-07-08	Alemanha	7	1	Brasil
+PART	1943-04-11	Corinthians	7	1	SP Railway
+PART	1994-04-29	Fluminense	7	1	Botafogo
+PART	1957-03-21	Brasil	7	1	Equador
+PART	1924-09-28	Santos	7	1	Portuguesa
+PART	1955-01-08	Palmeiras	7	1	Guarani
+PART	1980-04-16	Coritiba	7	1	Ferroviario
+PART	1952-11-16	Bangu	7	1	Canto do Rio
+PART	1926-04-25	Paulistano	7	1	Paulista
+PART	1937-12-08	Madureira	7	1	Olaria
+PART	1994-03-25	The Strongest	7	1	Minerven
+PART	1959-11-21	Corinthians	7	1	Comercial-SP
+PART	1949-10-30	Botafogo	7	1	Canto do Rio
+PART	1949-06-26	Ypiranga-SP	7	1	Comercial Capital SP
+PART	1938-01-19	Fluminense	7	1	Olaria
+PART	1937-11-03	Flamengo	7	1	Bonsucesso
+PART	1964-10-11	Botafogo-SP	7	1	Esportiva Guaratingueta
+PART	1952-09-14	Corinthians	7	1	Nacional-SP
+PART	1941-07-13	Hespanha	7	1	Comercial Capital SP
+PART	1937-11-07	America-RJ	7	1	Portuguesa-RJ
+PART	1996-02-01	Palmeiras	7	1	Novorizontino
+PART	1976-08-11	Botafogo	7	1	Americano
+PART	1927-08-14	America-RJ	7	1	Vila Isabel RJ
+PART	1961-03-11	Santos	7	1	Flamengo
+PART	1962-09-08	Corinthians	7	1	Ferroviaria
+PART	1949-04-24	Brasil	7	1	Peru
+PART	1947-08-23	Palmeiras	7	1	Comercial Capital SP
+PART	1927-07-10	America-RJ	7	1	Vila Isabel RJ
+PART	1935-08-25	Fluminense	7	1	Portuguesa-RJ
+PART	1918-05-26	Paulistano	7	1	Ypiranga-SP
+PART	1951-02-26	Palmeiras	7	1	Flamengo
+PART	1976-04-04	Bolivar	7	1	Guabira
+PART	1944-07-08	Fluminense	7	1	Madureira
+PART	1936-11-08	Fluminense	7	1	Bonsucesso
+PART	1960-04-19	Penarol	7	1	Jorge Wilstermann
+PART	1921-07-10	Corinthians	7	1	SC Internacional-SP
+PART	1948-10-03	Vasco	7	1	Bonsucesso
+PART	1947-11-30	Bangu	7	1	Bonsucesso
+PART	1929-11-03	Corinthians	7	1	Portuguesa
+PART	1924-04-20	Ypiranga-SP	7	1	AA das Palmeiras
+PART	1950-07-09	Brasil	7	1	Suecia
+PART	1944-10-15	Flamengo	7	1	Bangu
+PART	1927-06-19	Sao Cristovao	7	1	Andarahy
+PART	1937-11-15	Vasco	7	1	Olaria
+PART	1959-06-24	Palmeiras	7	1	Nacional-SP
+PART	2008-07-24	Gremio 	7	1	Figueirense
+PART	1933-06-11	Andarahy	7	1	River F.C.
+PART	1930-09-07	Corinthians	7	1	Sao Bento SP
+PART	1948-08-07	Olaria	7	1	Canto do Rio
+PART	1942-10-04	Ypiranga-SP	7	1	Comercial Capital SP
+PART	1927-05-15	Sao Cristovao	7	1	Andarahy
+PART	1979-03-29	Flamengo	7	1	Goytacaz
+PART	1955-02-27	Chile	7	1	Equador
+PART	1942-08-08	America-RJ	7	1	Bangu
+PART	2008-02-14	Nautico	7	1	Atletico Roraima
+PART	1958-12-06	Bangu	7	1	Olaria
+PART	1965-09-04	Santos	7	1	Botafogo-SP
+PART	1958-12-09	Santos	7	1	Juventus-SP
+PART	1946-11-02	America-RJ	7	1	Madureira
+PART	1929-11-10	Atletico Santista	7	1	Germania
+PART	1905-09-10	Germania	7	1	AA das Palmeiras
+PART	1928-08-05	Santos	7	1	Sirio
+PART	1927-10-30	Argentina	7	1	Bolivia
+PART	1976-05-20	Cruzeiro	7	1	Alianza Lima
+PART	1946-09-08	Flamengo	7	1	Bangu
+PART	1982-03-14	Vasco	7	1	Operario-MS
+PART	1939-05-28	Flamengo	7	1	America-RJ
+PART	1938-12-04	Flamengo	7	1	Bonsucesso
+PART	1933-06-29	Sao Paulo da Floresta	7	1	Sirio
+PART	1921-05-22	Sao Bento SP	7	1	Sirio
+PART	1933-05-21	Sao Paulo da Floresta	7	1	Ypiranga-SP
+PART	2000-04-11	Flamengo	7	1	Friburguense
+PART	1982-02-14	Atletico-MG	7	1	Desportiva Ferroviaria
+PART	1913-05-18	America-RJ	7	1	Sao Cristovao
+PART	1958-12-14	Santos	7	1	Guarani
+PART	1951-11-04	Portuguesa	7	1	Guarani
+PART	1945-05-27	Corinthians	7	1	Jabaquara
+PART	1928-10-14	Independencia-SP	7	1	Uniao Lapa
+PART	1976-03-20	America-RJ	7	1	Sao Cristovao
+PART	1914-11-08	America-RJ	7	1	Paysandu AC
+PART	1957-08-04	Bangu	7	1	Olaria
+PART	1989-05-03	Guarani	7	1	Santo Andre
+PART	1940-12-15	Flamengo	7	1	Bonsucesso
+PART	1926-09-05	Palestra Italia-SP	7	1	Solex
+PART	1996-03-31	Botafogo	7	1	Barreira
+PART	1997-10-26	Sao Paulo	7	1	Uniao Sao Joao
+PART	2001-08-05	Vasco	7	1	Guarani
+PART	2004-10-27	Fluminense	7	1	Juventude
+PART	1937-10-30	Botafogo	7	1	Portuguesa-RJ
+PART	1970-03-26	Universidad de Chile	7	1	Rangers
+PART	1946-08-11	Botafogo	7	1	Bangu
+PART	1938-12-10	Fluminense	7	1	Bonsucesso
+PART	1957-11-13	Sao Paulo	7	1	XV de Piracicaba
+PART	1934-04-01	Palestra Italia-SP	7	1	Ypiranga-SP
+PART	1999-03-23	Rio Branco-SP	7	1	Mogi Mirim
+PART	1910-07-10	Fluminense	7	1	Riachuelo
+        </pre>
+    </body>
+</html>
+<script type="text/javascript">
+
+    // Data Hearde Array
+    var header = "Status;Data;Vencedor;Resultado Vencedor;Resultado Perdedor;Perdedor".split(";");
+
+    // Data object
+    var dt = new Data();
+    
+    // Parser to data '\n' and '\t'
+    dt.parser(document.getElementById('data').innerHTML);
+
+    // Put Header in data
+    dt.putHeader(header);
+
+    // Fields Label to generate chart
+    var label = [];
+
+    label.push(['Data']);
+    label.push(['Vencedor']);
+    label.push(['Vencedor', 'Perdedor']);
+    label.push(['Perdedor', 'Vencedor']);
+    label.push(['Vencedor', 'Resultado Vencedor', 'Resultado Perdedor', 'Perdedor']);
+    
+    // To more information see:
+    //https://developers.google.com/chart/interactive/docs/gallery/controls
+
+    // Table to write chart
+    var tbl = new TableDashboard();
+    
+    // Get content element to put table
+    var content = document.getElementById('container');
+
+    // Set charts size
+    var piesize = 450;
+    var tablesize = 850;
+
+    // Loop to labels array
+    for (i = 0; i < label.length; i++) {
+
+        // put table chart in content
+        content.innerHTML += tbl.getContent();
+
+        // Count data to labels
+        // Data.count input 'Total' in label and sum itens
+        var data = dt.count(label[i]);
+
+        // Criate new Dashboar
+        var dashboard = new Dashboard(data);
+
+        // Get cfg Dashboard to configure
+        var cfg = dashboard.cfg;
+
+        // Slider config
+        cfg.slider = {
+            'controlType': 'NumberRangeFilter',
+            'containerId': tbl.slider + tbl.idx,
+            'options': {
+                'filterColumnLabel': 'Total',
+                'ui': {'labelStacking': 'vertical'}
+            }
+        };
+
+        // Category filter config
+        cfg.category = {
+            'controlType': 'CategoryFilter',
+            'containerId': tbl.category + tbl.idx,
+            'options': {
+                'filterColumnLabel': label[i][0],
+                'ui': {
+                    'labelStacking': 'vertical',
+                    'allowTyping': false,
+                    'allowMultiple': false
+                }
+            }
+        };
+
+        // Define pie chart columns
+        var columns = [
+            (data[0].length - 2),
+            (data[0].length - 1)
+        ];
+
+        if (columns[i] < 0) {
+            columns[0] = 0;
+        }
+
+        // Config Pie Chart
+        cfg.pie = {
+            'chartType': 'PieChart',
+            'containerId': tbl.pie + tbl.idx,
+            'options': {
+                'width': piesize,
+                'height': piesize,
+                'legend': 'none',
+                'title': label[i][1],
+                'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 0},
+                //'pieSliceText': 'label',
+
+                'is3D': true
+            },
+            'view': {'columns': columns}
+        };
+
+        // Config Table Grid
+        cfg.table = {
+            'chartType': 'Table',
+            'containerId': tbl.table + tbl.idx,
+            'options': {
+                'width': tablesize
+            }
+        };
+
+        // Set Dashboard name
+        cfg.dashboard = tbl.dashboard + tbl.idx;
+
+        // Draw Dashboard
+        dashboard.draw();
+    }
+</script>
+
